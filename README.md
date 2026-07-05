@@ -1,194 +1,202 @@
-[Alternativeto Scraper](https://apify.com/shahidirfan/AlternativeTo-Scraper?fpr=data)
+[Alternativeto Scraper](https://apify.com/datavoyantlab/alternativeto-scraper?fpr=data)
 
-Extract comprehensive data from AlternativeTo.net with ease. Collect thousands of software listings, alternatives, and tool details automatically. Perfect for market research, competitor analysis, and product discovery.
+# AlternativeTo.com Scraper - Extract Competitor Intelligence & Alternatives Data
 
----
+> **Professional web scraper for AlternativeTo.com** | Extract alternatives, competitor data, pricing, ratings, and detailed product information at scale. Built for market research, competitive analysis, and business intelligence.
 
-## Features
+## 🚀 Why Use This Scraper?
 
-- **Deep Data Extraction** — Scrape detailed software descriptions, categories, ratings, and pricing models.
-- **Smart Navigation** — Automatically handles pagination to collect as many results as you specify.
-- **Focused Results** — Seed your search with keywords or start directly from category and search URLs.
-- **Automated Deduplication** — Built-in logic ensures you only get unique tool listings without duplicates.
-- **Reliable Collection** — Designed to handle website protection systems for consistent and successful runs.
+Extract comprehensive competitor and alternative product data from AlternativeTo.com automatically. Perfect for market research, competitive analysis, lead generation, and business intelligence.
 
----
+**Key Benefits:**
 
-## Use Cases
+- ✅ **Pay-Per-Event Pricing** - Only pay for what you scrape
+- ✅ **Complete Data Extraction** - Basic info + optional detailed data
+- ✅ **High Performance** - Fast and efficient scraping
+- ✅ **Pagination Support** - Automatically scrapes all pages
+- ✅ **Structured Output** - Clean JSON data ready for analysis
 
-### Competitor Analysis
+## 📊 Example Output
 
-Track alternatives to your own software or your competitors. Understand what users are looking for and identify gaps in the market by analyzing alternative listings.
-
-### Software Asset Management
-
-Build a comprehensive database of software tools used across different categories. Compare pricing models and ratings to optimize your organization's tool stack.
-
-### Market Intelligence
-
-Monitor trending software categories and identify up-and-coming tools before they go mainstream. Track how software is categorized and rated by the community.
-
-### Content Generation
-
-Gather data for "Best Alternatives" articles or comparison blog posts. Quickly build lists of similar tools with descriptions and metadata.
-
----
-
-## Input Parameters
-
-| Parameter | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
-| `startUrls` | Array | No | `[]` | List of AlternativeTo URLs (categories or searches) to start from. |
-| `keyword` | String | No | `"AI image generator"` | Search keyword used when no start URLs are provided. |
-| `results_wanted` | Integer | No | `100` | Maximum number of tools to collect. |
-| `max_pages` | Integer | No | `20` | Safety cap on the number of result pages to visit. |
-| `collectDetails` | Boolean | No | `true` | When enabled, visits tool detail pages for full descriptions and extra info. |
-| `proxyConfiguration` | Object | No | `{"useApifyProxy": true}` | Proxy settings; residential proxies are highly recommended. |
-
----
-
-## Output Data
-
-Each item in the dataset contains structured information about a software tool:
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `title` | String | Name of the software or tool. |
-| `description` | String | Comprehensive description of the tool's features and purpose. |
-| `category` | String | Primary category or classification. |
-| `rating` | Number | User rating (on a 5-point scale). |
-| `pricing` | String | License type or pricing model (e.g., Free, Paid, Freemium). |
-| `url` | String | Absolute AlternativeTo URL of the tool. |
-| `logoUrl` | String | URL of the tool's logo/icon. |
-| `likes` | Integer | Number of likes the tool has received on AlternativeTo. |
-| `platforms` | Array | List of supported platforms (e.g., Windows, Mac, Android). |
-| `license` | String | Specific license type (Free, Open Source, etc.). |
-| `developer` | String | The developer or publisher of the software. |
-| `_source` | String | Source identifier (`alternativeto`). |
-
----
-
-## Usage Examples
-
-### Basic Keyword Search
-
-Extract tools related to a specific keyword from the search results.
+Here's what you get from a single alternative product:
 
 ```
 {
-  "keyword": "Photoshop alternatives",
-  "results_wanted": 50
-}
-```
-
-### Category Extraction
-
-Collect tools from a specific category URL.
-
-```
-{
-  "startUrls": [
-    { "url": "https://alternativeto.net/category/ai-tools/ai-image-generator/" }
+  "alternativeName": "IFTTT",
+  "alternativeUrl": "https://alternativeto.net/software/ifttt/about/",
+  "sourceUrl": "https://alternativeto.net/software/zapier/",
+  "description": "IFTTT automates over 1000 apps, devices, and services with no coding needed, supports 27 million users, partners with 900+ brands, and offers powerful automation features like filter codes, queries, multiple actions, connections, habit tracking, and location-triggered events.",
+  "detailedDescription": "IFTTT automates over 1000 apps, devices, and services with no coding needed, supports 27 million users, partners with 900+ brands, and offers powerful automation features like filter codes, queries, multiple actions, connections, habit tracking, and location-triggered events.",
+  "pricing": "Freemium•Proprietary",
+  "detailedPricing": "Subscription ranging between $4 and $10 per month + free version with limited functionality.",
+  "rating": 5,
+  "likes": 436,
+  "platforms": [
+    "Online",
+    "Android",
+    "iPhone",
+    "Android Tablet",
+    "iPad",
+    "Apple Watch",
+    "Android Wear"
   ],
-  "collectDetails": true,
-  "results_wanted": 100
+  "tags": [
+    "Task Automation App"
+  ],
+  "features": [
+    "Lightweight",
+    "Workflow Automation",
+    "Customizable triggers",
+    "Task Automation",
+    "Service Integration",
+    "Home Automation",
+    "No Coding Required",
+    "Live Push Notifications",
+    "Facebook integration"
+  ],
+  "officialWebsite": "https://ifttt.com",
+  "appStores": [
+    {
+      "name": "Download from Google Play Store (https://play.google.com/store/apps/details?id=com.ifttt.ifttt)",
+      "url": "https://play.google.com/store/apps/details?id=com.ifttt.ifttt"
+    },
+    {
+      "name": "Download from iPhone App Store (https://apps.apple.com/app/ifttt-automate-work-and-home/id660944635)",
+      "url": "https://apps.apple.com/app/ifttt-automate-work-and-home/id660944635"
+    }
+  ],
+  "developedBy": "IFTTT",
+  "licensing": "Freemium•Proprietary",
+  "popularAlternatives": [
+    {
+      "name": "Zapier",
+      "url": "https://alternativeto.net/software/zapier/about/"
+    },
+    {
+      "name": "Huginn",
+      "url": "https://alternativeto.net/software/huginn/about/"
+    },
+    {
+      "name": "n8n.io",
+      "url": "https://alternativeto.net/software/n8n-io/about/"
+    },
+    {
+      "name": "View all",
+      "url": "https://alternativeto.net/software/ifttt/"
+    }
+  ],
+  "hasDetailedData": true
 }
 ```
 
-### Large Scale Collection
+**Data Fields Include:** Product descriptions, ratings, pricing, platforms, tags, features, official websites, app stores, developer info, licensing, supported languages, and more.
 
-Gather a large number of results across multiple pages with residential proxies.
+## 🎯 Use Cases
+
+- **Competitive Intelligence**: Track alternatives, pricing, and features
+- **Market Research**: Discover complete market landscapes
+- **Lead Generation**: Find potential customers searching for alternatives
+- **Product Discovery**: Research categories and emerging tools
+- **Sales Intelligence**: Extract pricing strategies and market positioning
+
+## ⚙️ Input Parameters
+
+### Required
+
+- **`start_urls`** (array): List of AlternativeTo.com product page URLs
+
+- Example: `https://alternativeto.net/software/zapier/`
+
+### Optional
+
+- **`fetchDetailedData`** (boolean, default: `false`): Enable detailed data extraction
+
+- ⚠️ **Charged event** - each alternative's detail page is a separate charge
+- When `true`: Extracts features, official website, app stores, developer info, licensing, detailed pricing
+- When `false`: Only extracts basic information (name, description, rating, platforms, tags)
+- ⚠️ **Free users**: Detailed data fetching is automatically disabled to prevent abuse
+- **`maxAlternativesPerProduct`** (integer, default: `0` = unlimited): Maximum number of alternatives to extract per product
+
+- Limits alternatives across all paginated pages for each product URL
+- Useful for cost control during testing
+- Set to `0` for unlimited extraction
+- ⚠️ **Free users**: Automatically limited to 10 alternatives per product (prevents abuse)
+
+### Example Input
 
 ```
 {
-  "keyword": "Notion alternatives",
-  "results_wanted": 500,
-  "max_pages": 50,
-  "proxyConfiguration": {
-    "useApifyProxy": true,
-    "apifyProxyGroups": ["RESIDENTIAL"]
-  }
+  "start_urls": [
+    { "url": "https://alternativeto.net/software/zapier/" }
+  ],
+  "fetchDetailedData": true,
+  "maxAlternativesPerProduct": 50
 }
 ```
 
----
+## 📤 Output Data Structure
 
-## Sample Output
+### Basic Fields (Always Included)
+
+- `sourceUrl`, `alternativeName`, `alternativeUrl`, `description`
+- `tags`, `platforms`, `pricing`, `rating`, `likes`
+- `hasDetailedData`
+
+### Detailed Fields (When `fetchDetailedData: true`)
+
+- `detailedDescription`, `features`, `officialWebsite`
+- `appStores`, `otherLinks`, `developedBy`, `licensing`
+- `detailedPricing`, `alternativesCount`, `supportedLanguages`
+- `alternativeToCategories`, `popularAlternatives`
+
+## 💰 Pricing Model
+
+**Pay-Per-Event (PPE) pricing** - you only pay for what you use:
+
+1. **`ACTOR_RUN`** - Charged once per Actor execution
+2. **`LISTING_BASIC_SCRAPED`** - Charged per alternative extracted
+3. **`LISTING_DETAIL_SCRAPED`** - Charged per detail page scraped (only if `fetchDetailedData: true`)
+
+## 🔧 Features
+
+- ✅ **High Performance**: Fast and efficient scraping
+- ✅ **Multi-Page Support**: Automatically handles pagination across all pages
+- ✅ **Comprehensive Extraction**: 20+ data fields per alternative
+- ✅ **Batch Processing**: Process multiple product URLs in one run
+- ✅ **Automatic Deduplication**: Removes duplicate alternatives automatically
+- ✅ **Reliable Operation**: Robust error handling and retry logic
+
+## 🚀 Getting Started
+
+1. Open this Actor on [Apify Platform](https://apify.com/)
+2. Configure input parameters (add URLs, choose basic/detailed data)
+3. Click **Start** and monitor progress
+4. Download results from the Dataset tab
+
+**Minimal Configuration:**
 
 ```
 {
-  "title": "Midjourney",
-  "description": "Midjourney is an independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species. Their AI tool generates high-quality images from text descriptions.",
-  "category": "AI Image Generator",
-  "rating": 4.8,
-  "pricing": "Paid",
-  "license": "Commercial",
-  "url": "https://alternativeto.net/software/midjourney/",
-  "logoUrl": "https://d2.alternativeto.net/dist/icons/midjourney_234234.png",
-  "likes": 1250,
-  "platforms": ["Online"],
-  "developer": "Midjourney Inc.",
-  "_source": "alternativeto"
+  "start_urls": [
+    { "url": "https://alternativeto.net/software/zapier/" }
+  ]
 }
 ```
 
----
+## 📈 Output Access
 
-## Tips for Best Results
+Data is stored in the dataset with two views:
 
-### Use Residential Proxies
+- **Overview** - Basic alternative information
+- **Detailed** - Complete data with all detailed fields
 
-To ensure consistent extraction and avoid being limited by website protections, always use Apify Residential Proxies.
+## 🔍 SEO Keywords
 
-### Targeted URLs
+AlternativeTo scraper, competitor intelligence, market research tool, alternative products scraper, competitive analysis, product alternatives data, software alternatives API, competitor monitoring, market intelligence, product research, alternative discovery, competitor tracking, software comparison data, product alternatives API, market analysis tool, competitive intelligence platform
 
-For the most relevant data, provide direct category URLs rather than broad keywords. This ensures you capture all tools in a specific niche.
+## 🆘 Support
 
-### Balanced Collection
+- **Issues**: Report bugs or request features via Apify Platform
+- **Documentation**: Check the [Apify Docs](https://docs.apify.com)
 
-For initial testing, start with a small `results_wanted` (e.g., 20) to verify you're getting the data you need before running large-scale extractions.
-
----
-
-## Integrations
-
-Connect your extracted AlternativeTo data with:
-
-- **Google Sheets** — Export directly for analysis and reporting
-- **Airtable** — Build searchable software databases
-- **Slack** — Get notifications for new software matches
-- **Webhooks** — Send data to your custom internal systems
-
-### Export Formats
-
-- **JSON** — Ready for developers and application integration
-- **CSV** — Optimized for spreadsheet and business analysis
-- **Excel** — Convenient for reporting and presentations
-
----
-
-## Frequently Asked Questions
-
-### Can I scrape multiple categories at once?
-
-Yes, you can provide multiple URLs in the `startUrls` input array.
-
-### How do I collect only tool names and URLs?
-
-Set `collectDetails` to `false`. This will skip visiting individual tool pages and only collect data available on the list pages.
-
-### Does it handle pagination?
-
-Yes, the scraper automatically identifies and follows the "Next" page links until your target result count is met.
-
----
-
-## Support
-
-For issues or feature requests, please contact support through the Apify Console.
-
----
-
-## Legal Notice
-
-This actor is designed for legitimate data collection purposes. Users are responsible for ensuring compliance with website terms of service and applicable laws. Use data responsibly and respect rate limits and community guidelines.
+**Built with ❤️ using [Apify](https://apify.com/) and [Crawlee](https://crawlee.dev)**
